@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.shared"
+    namespace = "com.example.films"
     compileSdk = 34
 
     defaultConfig {
@@ -48,6 +48,12 @@ android {
 
 dependencies {
 
+    implementation(project(":core:api-ktx"))
+    implementation(project(":shared"))
+
+
+
+    implementation(libs.coil.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

@@ -22,7 +22,7 @@ dependencyResolutionManagement {
 rootProject.name = "CinemaApp"
 include(":app")
 include(":feature")
-include(":data")
 include(":core")
 include(":shared")
 include(":core:api-ktx")
+include(":feature:films")
