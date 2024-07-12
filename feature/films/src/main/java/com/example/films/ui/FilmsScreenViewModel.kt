@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class FilmsScreenViewModel(
-    private val cinemaService: CinemaService
+    private val cinemaService: CinemaService = CinemaService()
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(UIState())
@@ -55,21 +55,9 @@ class FilmsScreenViewModel(
     }
 
 
-
     data class UIState(
         val films: List<FilmUi> = emptyList(),
         val isLoading: Boolean = false,
         val error: Throwable? = null
     )
-
-
-    class Factory(
-        private val cinemaService: CinemaService
-    ) : ViewModelProvider.Factory {
-
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return FilmsScreenViewModel(cinemaService) as T
-        }
-    }
 }

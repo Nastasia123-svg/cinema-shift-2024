@@ -21,7 +21,6 @@ data class FilmUi(
 
     companion object {
 
-
         fun forPreview(): FilmUi {
             return FilmUi(
                 id = "0",

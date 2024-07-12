@@ -1,11 +1,13 @@
 package com.example.api_ktx
 
 import com.example.api_ktx.models.CinemaTodayResponse
+import com.example.api_ktx.models.FilmResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 
 /**
@@ -16,11 +18,17 @@ interface CinemaService {
     @GET("/cinema/today")
     suspend fun getAll(): CinemaTodayResponse
 
+    @GET("/cinema/film/{filmId}")
+    suspend fun getById(@Path("filmId") id: String): FilmResponse
+
+    @GET("/cinema/film/{filmId}/schedule")
+    suspend fun getByScheduleById(@Path("filmId") id: String): FilmResponse
+
 
     // паттерн синглтон для получения еинственного экземпляра класса
     companion object {
 
-        const val BASE_URL = "https://shift-backend.onrender.com/"
+        const val BASE_URL = "https://shift-backend.onrender.com"
         private var INSTANCE: CinemaService? = null
 
         operator fun invoke(): CinemaService {

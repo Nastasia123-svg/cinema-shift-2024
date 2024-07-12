@@ -14,4 +14,8 @@ val Pink40 = Color(0xFF7D5260)
 object AppColors {
     val LightGray = Color(0xffF5F5F8)
     val Gray = Color(0xffCED2DA)
+    val DarkGray = Color(0xff637083)
+    val Primary = Color(0xff9534D2)
+    val TextSecondary = Color(0xff344051)
+    val TextTertiary = Color(0xff637083)
 }
